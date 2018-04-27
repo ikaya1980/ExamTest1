@@ -1,0 +1,68 @@
+﻿@model ExamTest1.Models.Question
+
+@{
+    ViewBag.Title = "Index";
+
+    string buttonName = "Next";
+
+    if(Model.Id == 5)
+    {
+        buttonName = "Finish";
+    }
+}
+
+<h2>Index</h2>
+@using (Html.BeginForm())
+{
+    <table class="table">
+        
+
+        <tr>
+
+            @Html.HiddenFor(i => Model.Id)
+
+            <td>
+                @Model.Text
+
+            </td>
+            <td>
+
+                <div class="form-group">
+                    <div class="maxPricePad">
+                        Html.RadioButtonFor(x => , Model.SectionA) 
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="maxPricePad">
+                        <label>@Html.RadioButton("Marketplaces", Model.boolSectionB) @Model.SectionB</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="maxPricePad">
+                        <label>@Html.RadioButton("Marketplaces", Model.boolSectionC)  @Model.SectionC</label>
+                    </div>
+                </div>
+
+            </td>
+            @*<td>
+                @Html.RadioButton("Q1", "A")
+                @Model.SectionA
+            </td>
+            <td>
+                @Html.RadioButton("Q1", "B")
+                @Model.SectionB
+            </td>
+            <td>
+                @Html.RadioButton("Q1", "C")
+                @Model.SectionC
+            </td>*@
+            <td>
+                @*@Html.DisplayFor(modelItem => Model.CorrectAnswer)*@
+            </td>
+
+        </tr>
+
+    </table>
+
+    <button type="submit" id="btnNext" class="form-control" name="qNumber" value="@Model.Id" style="width:150px">@buttonName</button>
+}
